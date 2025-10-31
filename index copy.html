@@ -785,7 +785,7 @@
               description:
                 "Chidi dreams of going on a grand safari, but learns that true adventure starts with curiosity and kindness right at home.",
               thumbnail: "assets/chidi.jpeg",
-              videoUrl: "coming-soon", // Updated to 'coming-soon'
+              videoUrl: "assets/",
               readAlong:
                 "Every night, Chidi would draw lions, elephants, and giraffes in his notebook, dreaming of exploring the wild. One morning, his grandmother sent him to fetch water — and along the way, he met a chameleon, a curious bird, and even an antelope grazing by the path. By the time he returned, he realized his own backyard was full of wonders. Chidi smiled, understanding that a safari isn’t just about seeing wild animals — it’s about seeing the world with open eyes."
             },
@@ -796,7 +796,7 @@
     description:
       "Kuku, a curious little chicken, sets out to find where the sun sleeps — and learns the importance of bravery, curiosity, and home.",
     thumbnail: "assets/kuku adventure.png",
-    videoUrl: "coming-soon", // Updated to 'coming-soon'
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     readAlong:
       "Kuku was the smallest chick in her mother’s coop, but she had the biggest imagination. Every evening, as the sun dipped behind the hills, Kuku would wonder where it went to sleep. One morning, she decided to find out. She marched past tall grass, crossed a sparkling stream, and met a wise tortoise who told her, 'The sun never sleeps — it simply rests so others may shine.' When Kuku returned home, she realized that adventure isn’t just about how far you go, but how much you learn along the way."
   },
@@ -807,7 +807,7 @@
     description:
       "Kami discovers a wild talking fish that can change colors — and learns a powerful lesson about caring for the ocean and its creatures.",
     thumbnail: "assets/kami.jpeg",
-    videoUrl: "coming-soon", // Updated to 'coming-soon'
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     readAlong:
       "On the shores of Lamu, Kami loved to swim among coral reefs. One day, she caught a strange fish glowing like the rainbow. The fish begged her to let it go, promising to show her the secrets of the sea. When she released it, Kami was taken on a magical underwater journey filled with dancing turtles and singing dolphins. The wild fish told her, 'The ocean is alive — protect it, and it will always protect you.' Kami returned home and became the youngest ocean guardian in her village."
   },
@@ -818,7 +818,7 @@
     description:
       "A greedy spirit who steals all the village soup learns a funny but heartfelt lesson about sharing and community.",
     thumbnail: "assets/the soup monster.jpeg",
-    videoUrl: "coming-soon", // Updated to 'coming-soon'
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     readAlong:
       "In the village of Nyameko, everyone loved Mama Sisi’s famous peanut soup. But one night, a sneaky soup monster crept into the kitchen and ate it all! The villagers chased the monster through the forest until it got stuck in a giant calabash. Mama Sisi didn’t scold it — she offered it a small bowl instead. The monster was so touched that it began cooking with her every night. From that day on, the soup tasted even better, because it was made with love — and a little bit of monster mischief."
   },
@@ -829,7 +829,7 @@
     description:
       "Five children from different villages find glowing opal stones that connect them through stories, friendship, and light.",
     thumbnail: "assets/the opal circle.jpeg",
-    videoUrl: "coming-soon", // Updated to 'coming-soon'
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     readAlong:
       "During a solar eclipse, five children — Ayo, Zuri, Themba, Amara, and Nia — found glowing opal stones scattered across the savannah. When they joined the stones together, they formed a circle that told stories of the stars and ancestors. Each child learned something different: courage, patience, laughter, kindness, and truth. When the light faded, the children promised to share their lessons with others, keeping the circle alive. From that day, they were known as the Keepers of the Opal Circle."
   }
@@ -872,27 +872,7 @@
             if (!story) return;
 
             currentStoryIndex = stories.indexOf(story);
-            
-            // Check if the video is 'coming-soon'
-            if (story.videoUrl === 'coming-soon') {
-                // If 'coming-soon', display a placeholder message and image in the viewer
-                const viewerContent = `
-                    <div class="coming-soon" style="min-height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #F6B700 0%, #FF9A00 100%); border-radius: 20px;">
-                        <div style="text-align: center; color: #4A2C00; padding: 2rem;">
-                            <div style="font-size: 5rem; margin-bottom: 1rem;">🎥</div>
-                            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Video Coming Soon!</h1>
-                            <p style="font-size: 1.5rem;">The video for **${story.title}** is not available at the moment. <br>Please enjoy the read-along text below!</p>
-                        </div>
-                    </div>
-                `;
-                // Replace the video player with the coming soon content
-                document.querySelector('.video-container').innerHTML = viewerContent;
-                
-            } else {
-                // If a valid video URL, use the iframe player
-                document.querySelector('.video-container').innerHTML = `<iframe id="videoPlayer" src="${story.videoUrl}" allowfullscreen></iframe>`;
-            }
-
+            document.getElementById('videoPlayer').src = story.videoUrl;
             document.getElementById('storyText').textContent = story.readAlong;
             navigateTo('viewer');
         }
