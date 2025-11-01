@@ -1,853 +1,928 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ponji Tales — Where Africa's Imagination Streams</title>
     <!-- Favicon: use logo-icon.jpeg from assets folder -->
-    <link rel="icon" href="assets/logo-icon.jpeg" type="image/jpeg">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo-icon.jpeg" type="image/jpeg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <!-- Chewy font for playful, child-friendly typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            /* Primary site font: Chewy (playful / child-friendly). Nunito kept as fallback. */
-            font-family: 'Chewy', 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            color: #4A2C00;
-            background: #FFF8E7;
-        }
+      body {
+        /* Primary site font: Chewy (playful / child-friendly). Nunito kept as fallback. */
+        font-family: "Chewy", "Nunito Sans", system-ui, -apple-system,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: #4a2c00;
+        background: #fff8e7;
+      }
 
-        /* Navigation */
-        nav {
-            background: linear-gradient(135deg, #F6B700 0%, #FF9A00 100%);
-            padding: 1.5rem 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+      /* Navigation */
+      nav {
+        background: linear-gradient(135deg, #f6b700 0%, #ff9a00 100%);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
 
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #4a2c00;
+      }
+
+      .logo-icon {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: #4a2c00;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s;
+        font-size: 1.5rem;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* Pages Container */
+      .page {
+        display: none;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #f6b700 0%, #ff9a00 100%);
+        padding: 5rem 2rem;
+        text-align: center;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        color: #4a2c00;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 2.5rem;
+        color: #5a3c0a;
+        margin-bottom: 2.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #f6b700;
+        background: #4a2c00;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        background: #5a3c0a;
+      }
+
+      /* Library Section */
+      .library {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .library-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .library-header h1 {
+        font-size: 3.5rem;
+        color: #4a2c00;
+        margin-bottom: 1rem;
+      }
+
+      #featuredStory {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 2rem 0;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      #featuredStory img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+
+      #featuredStory h2 {
+        font-size: 2.5rem;
+        color: #4a2c00;
+        margin-bottom: 1rem;
+      }
+
+      #featuredStory p {
+        color: #6a4c10;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .search-container {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      #searchBar {
+        width: 100%;
+        max-width: 500px;
+        padding: 1rem;
+        border-radius: 25px;
+        border: 2px solid #f6b700;
+        font-size: 1.2rem;
+        font-family: "Nunito Sans", sans-serif;
+      }
+
+      .filters {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .filter-btn {
+        padding: 0.75rem 1.5rem;
+        background: white;
+        border: 2px solid #f6b700;
+        border-radius: 25px;
+        color: #4a2c00;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1.4rem;
+      }
+
+      .filter-btn.active {
+        background: #f6b700;
+        color: white;
+      }
+
+      .filter-btn:hover {
+        background: #f6b700;
+        transform: translateY(-2px);
+      }
+
+      .stories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .story-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .story-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .story-thumbnail {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background: linear-gradient(135deg, #f6b700 0%, #ff9a00 100%);
+      }
+
+      .story-info {
+        padding: 1.5rem;
+      }
+
+      .story-region {
+        display: inline-block;
+        background: #f6b700;
+        color: #4a2c00;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .story-title {
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #4a2c00;
+        margin-bottom: 0.75rem;
+      }
+
+      .story-description {
+        color: #6a4c10;
+        line-height: 1.8;
+        font-size: 1.2rem;
+      }
+
+      /* Story Viewer */
+      .viewer {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .video-container {
+        background: #000;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        margin-bottom: 2rem;
+      }
+
+      .video-container iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+      }
+
+      .read-along {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .read-along h2 {
+        color: #4a2c00;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 2.5rem;
+      }
+
+      .read-along p {
+        color: #6a4c10;
+        line-height: 1.8;
+        font-size: 1.8rem;
+      }
+
+      .viewer-nav {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-secondary {
+        background: white;
+        color: #4a2c00;
+        border: 2px solid #f6b700;
+      }
+
+      .btn-secondary:hover {
+        background: #f6b700;
+      }
+
+      /* About Page */
+      .about {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .about-hero {
+        background: linear-gradient(135deg, #f6b700 0%, #ff9a00 100%);
+        padding: 3rem;
+        border-radius: 30px;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .about-hero h1 {
+        font-size: 3.5rem;
+        color: #4a2c00;
+        margin-bottom: 1rem;
+      }
+
+      .about-content {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        line-height: 1.8;
+      }
+
+      .about-content h2 {
+        color: #4a2c00;
+        margin: 2rem 0 1rem;
+        font-size: 2.5rem;
+      }
+
+      .about-content p {
+        color: #6a4c10;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      /* Coming Soon Page */
+      .coming-soon {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 2rem;
+      }
+
+      .coming-soon-content {
+        text-align: center;
+        max-width: 600px;
+      }
+
+      .coming-soon-icon {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+      }
+
+      .coming-soon h1 {
+        font-size: 3.5rem;
+        color: #4a2c00;
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon p {
+        font-size: 1.8rem;
+        color: #6a4c10;
+        margin-bottom: 2rem;
+      }
+
+      .features-list {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+
+      .features-list ul {
+        list-style: none;
+      }
+
+      .features-list li {
+        padding: 0.75rem 0;
+        color: #6a4c10;
+        font-size: 1.6rem;
+      }
+
+      .features-list li:before {
+        content: "🌟 ";
+        margin-right: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #4A2C00;
+          font-size: 1.8rem;
         }
 
         .logo-icon {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
+          width: 45px;
+          height: 45px;
         }
 
         .nav-links a {
-            color: #4A2C00;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 1.5rem;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        /* Pages Container */
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #F6B700 0%, #FF9A00 100%);
-            padding: 5rem 2rem;
-            text-align: center;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+          font-size: 1.2rem;
+          padding: 0.6rem 1rem;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            color: #4A2C00;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+          font-size: 2.5rem;
         }
 
         .hero p {
-            font-size: 2.5rem;
-            color: #5A3C0A;
-            margin-bottom: 2.5rem;
+          font-size: 1.8rem;
         }
 
         .btn {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #F6B700;
-            background: #4A2C00;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            background: #5A3C0A;
-        }
-
-        /* Library Section */
-        .library {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .library-header {
-            text-align: center;
-            margin-bottom: 3rem;
+          font-size: 1.5rem;
+          padding: 1rem 2rem;
         }
 
         .library-header h1 {
-            font-size: 3.5rem;
-            color: #4A2C00;
-            margin-bottom: 1rem;
+          font-size: 2.5rem;
         }
 
-        #featuredStory {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        #featuredStory img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px;
+        .library-header p {
+          font-size: 1.3rem !important;
         }
 
         #featuredStory h2 {
-            font-size: 2.5rem;
-            color: #4A2C00;
-            margin-bottom: 1rem;
+          font-size: 2rem;
         }
 
         #featuredStory p {
-            color: #6A4C10;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .search-container {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        #searchBar {
-            width: 100%;
-            max-width: 500px;
-            padding: 1rem;
-            border-radius: 25px;
-            border: 2px solid #F6B700;
-            font-size: 1.2rem;
-            font-family: 'Nunito Sans', sans-serif;
-        }
-
-        .filters {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            background: white;
-            border: 2px solid #F6B700;
-            border-radius: 25px;
-            color: #4A2C00;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.4rem;
-        }
-
-        .filter-btn.active {
-            background: #F6B700;
-            color: white;
-        }
-
-        .filter-btn:hover {
-            background: #F6B700;
-            transform: translateY(-2px);
-        }
-
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .story-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .story-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-
-        .story-thumbnail {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #F6B700 0%, #FF9A00 100%);
-        }
-
-        .story-info {
-            padding: 1.5rem;
-        }
-
-        .story-region {
-            display: inline-block;
-            background: #F6B700;
-            color: #4A2C00;
-            padding: 0.25rem 0.75rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
+          font-size: 1.3rem;
         }
 
         .story-title {
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: #4A2C00;
-            margin-bottom: 0.75rem;
+          font-size: 1.6rem;
         }
 
         .story-description {
-            color: #6A4C10;
-            line-height: 1.8;
-            font-size: 1.2rem;
+          font-size: 1.2rem;
         }
 
-        /* Story Viewer */
-        .viewer {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .video-container {
-            background: #000;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            margin-bottom: 2rem;
+        .filter-btn {
+          font-size: 1.1rem;
+          padding: 0.6rem 1.2rem;
         }
 
         .video-container iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-
-        .read-along {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+          height: 300px;
         }
 
         .read-along h2 {
-            color: #4A2C00;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 2.5rem;
+          font-size: 2rem;
         }
 
         .read-along p {
-            color: #6A4C10;
-            line-height: 1.8;
-            font-size: 1.8rem;
-        }
-
-        .viewer-nav {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #4A2C00;
-            border: 2px solid #F6B700;
-        }
-
-        .btn-secondary:hover {
-            background: #F6B700;
-        }
-
-        /* About Page */
-        .about {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .about-hero {
-            background: linear-gradient(135deg, #F6B700 0%, #FF9A00 100%);
-            padding: 3rem;
-            border-radius: 30px;
-            text-align: center;
-            margin-bottom: 3rem;
+          font-size: 1.4rem;
         }
 
         .about-hero h1 {
-            font-size: 3.5rem;
-            color: #4A2C00;
-            margin-bottom: 1rem;
+          font-size: 2.5rem;
+        }
+
+        .about-hero p {
+          font-size: 1.3rem !important;
         }
 
         .about-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            line-height: 1.8;
+          padding: 2rem;
         }
 
         .about-content h2 {
-            color: #4A2C00;
-            margin: 2rem 0 1rem;
-            font-size: 2.5rem;
+          font-size: 2rem;
         }
 
         .about-content p {
-            color: #6A4C10;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        /* Coming Soon Page */
-        .coming-soon {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem 2rem;
-        }
-
-        .coming-soon-content {
-            text-align: center;
-            max-width: 600px;
-        }
-
-        .coming-soon-icon {
-            font-size: 5rem;
-            margin-bottom: 2rem;
+          font-size: 1.4rem;
         }
 
         .coming-soon h1 {
-            font-size: 3.5rem;
-            color: #4A2C00;
-            margin-bottom: 1rem;
+          font-size: 2.5rem;
         }
 
         .coming-soon p {
-            font-size: 1.8rem;
-            color: #6A4C10;
-            margin-bottom: 2rem;
-        }
-
-        .features-list {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            text-align: left;
-        }
-
-        .features-list ul {
-            list-style: none;
+          font-size: 1.4rem;
         }
 
         .features-list li {
-            padding: 0.75rem 0;
-            color: #6A4C10;
-            font-size: 1.6rem;
+          font-size: 1.3rem;
         }
 
-        .features-list li:before {
-            content: "🌟 ";
-            margin-right: 0.5rem;
+        .nav-links {
+          width: 100%;
+          justify-content: center;
         }
 
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 1.8rem;
-            }
-
-            .logo-icon {
-                width: 45px;
-                height: 45px;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 0.6rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.8rem;
-            }
-
-            .btn {
-                font-size: 1.5rem;
-                padding: 1rem 2rem;
-            }
-
-            .library-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .library-header p {
-                font-size: 1.3rem !important;
-            }
-
-            #featuredStory h2 {
-                font-size: 2rem;
-            }
-
-            #featuredStory p {
-                font-size: 1.3rem;
-            }
-
-            .story-title {
-                font-size: 1.6rem;
-            }
-
-            .story-description {
-                font-size: 1.2rem;
-            }
-
-            .filter-btn {
-                font-size: 1.1rem;
-                padding: 0.6rem 1.2rem;
-            }
-
-            .video-container iframe {
-                height: 300px;
-            }
-
-            .read-along h2 {
-                font-size: 2rem;
-            }
-
-            .read-along p {
-                font-size: 1.4rem;
-            }
-
-            .about-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-hero p {
-                font-size: 1.3rem !important;
-            }
-
-            .about-content {
-                padding: 2rem;
-            }
-
-            .about-content h2 {
-                font-size: 2rem;
-            }
-
-            .about-content p {
-                font-size: 1.4rem;
-            }
-
-            .coming-soon h1 {
-                font-size: 2.5rem;
-            }
-
-            .coming-soon p {
-                font-size: 1.4rem;
-            }
-
-            .features-list li {
-                font-size: 1.3rem;
-            }
-
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .stories-grid {
-                grid-template-columns: 1fr;
-            }
-
-            #featuredStory {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            #featuredStory img {
-                width: 100%;
-                max-width: 300px;
-            }
+        .stories-grid {
+          grid-template-columns: 1fr;
         }
 
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-            }
-
-            .nav-links {
-                gap: 0.8rem;
-            }
-
-            .nav-links a {
-                font-size: 1rem;
-                padding: 0.5rem 0.8rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                font-size: 1.3rem;
-                padding: 0.9rem 1.8rem;
-            }
-
-            .library-header h1 {
-                font-size: 2rem;
-            }
-
-            .filter-btn {
-                font-size: 1rem;
-                padding: 0.5rem 1rem;
-            }
-
-            .story-title {
-                font-size: 1.4rem;
-            }
-
-            .story-description {
-                font-size: 1.1rem;
-            }
-
-            .read-along h2 {
-                font-size: 1.6rem;
-            }
-
-            .read-along p {
-                font-size: 1.2rem;
-            }
-
-            .about-hero h1,
-            .coming-soon h1 {
-                font-size: 2rem;
-            }
-
-            .about-content h2 {
-                font-size: 1.7rem;
-            }
-
-            .about-content p,
-            .coming-soon p {
-                font-size: 1.2rem;
-            }
-
-            .features-list li {
-                font-size: 1.1rem;
-            }
+        #featuredStory {
+          flex-direction: column;
+          text-align: center;
         }
+
+        #featuredStory img {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .logo-icon {
+          width: 40px;
+          height: 40px;
+        }
+
+        .nav-links {
+          gap: 0.8rem;
+        }
+
+        .nav-links a {
+          font-size: 1rem;
+          padding: 0.5rem 0.8rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1.5rem;
+        }
+
+        .btn {
+          font-size: 1.3rem;
+          padding: 0.9rem 1.8rem;
+        }
+
+        .library-header h1 {
+          font-size: 2rem;
+        }
+
+        .filter-btn {
+          font-size: 1rem;
+          padding: 0.5rem 1rem;
+        }
+
+        .story-title {
+          font-size: 1.4rem;
+        }
+
+        .story-description {
+          font-size: 1.1rem;
+        }
+
+        .read-along h2 {
+          font-size: 1.6rem;
+        }
+
+        .read-along p {
+          font-size: 1.2rem;
+        }
+
+        .about-hero h1,
+        .coming-soon h1 {
+          font-size: 2rem;
+        }
+
+        .about-content h2 {
+          font-size: 1.7rem;
+        }
+
+        .about-content p,
+        .coming-soon p {
+          font-size: 1.2rem;
+        }
+
+        .features-list li {
+          font-size: 1.1rem;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon"><img src="assets/logo.jpeg" alt="Ponji Tales logo"></div>
-                <span>Ponji Tales</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#" data-page="home">Home</a></li>
-                <li><a href="#" data-page="library">Library</a></li>
-                <li><a href="#" data-page="about">About</a></li>
-                <li><a href="#" data-page="coming-soon">Coming Soon</a></li>
-            </ul>
+      <div class="nav-container">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="assets/logo_ponji_tales.jpeg" alt="Ponji Tales logo" />
+          </div>
+          <span>Ponji Tales</span>
         </div>
+        <ul class="nav-links">
+          <li><a href="#" data-page="home">Home</a></li>
+          <li><a href="#" data-page="library">Library</a></li>
+          <li><a href="#" data-page="about">About</a></li>
+          <li><a href="#" data-page="coming-soon">Coming Soon</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Home Page -->
     <div id="home" class="page active">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>👉 Welcome to Ponji Tales</h1>
-                <p>Where African stories come alive — one tale at a time.</p>
-                <button class="btn" onclick="navigateTo('library')">Explore Stories</button>
-            </div>
-        </section>
+      <section class="hero">
+        <div class="hero-content">
+          <h1><img src="assets/Raha.png" alt="Welcome" style="width: 100px; height: 190px; object-fit: cover;  vertical-align: middle; margin-right: 15px;"> Welcome to Ponji Tales</h1>          <p>Where African stories come alive — one tale at a time.</p>
+          
+          <button class="btn" onclick="navigateTo('library')">
+            Explore Stories
+          </button>
+        </div>
+      </section>
     </div>
 
     <!-- Library Page -->
     <div id="library" class="page">
-        <section class="library">
-            <div class="library-header">
-                <h1>Story Library</h1>
-                <p style="font-size: 1.5rem; color: #6A4C10;">Discover magical tales from across Africa</p>
-                <div id="featuredStory"></div>
-                <div class="search-container">
-                    <input type="text" id="searchBar" placeholder="Search for a story...">
-                </div>
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">All Ages</button>
-                    <button class="filter-btn" data-filter="West Africa">West Africa</button>
-                    <button class="filter-btn" data-filter="East Africa">East Africa</button>
-                    <button class="filter-btn" data-filter="Central Africa">Central Africa</button>
-                    <button class="filter-btn" data-filter="Southern Africa">Southern Africa</button>
-                </div>
-            </div>
-            <div class="stories-grid" id="storiesGrid"></div>
-        </section>
+      <section class="library">
+        <div class="library-header">
+          <h1>Story Library</h1>
+          <p style="font-size: 1.5rem; color: #6a4c10">
+            Discover magical tales from across Africa
+          </p>
+          <div id="featuredStory"></div>
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchBar"
+              placeholder="Search for a story..."
+            />
+          </div>
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all">
+              All Ages
+            </button>
+            <button class="filter-btn" data-filter="West Africa">
+              West Africa
+            </button>
+            <button class="filter-btn" data-filter="East Africa">
+              East Africa
+            </button>
+            <button class="filter-btn" data-filter="Central Africa">
+              Central Africa
+            </button>
+            <button class="filter-btn" data-filter="Southern Africa">
+              Southern Africa
+            </button>
+          </div>
+        </div>
+        <div class="stories-grid" id="storiesGrid"></div>
+      </section>
     </div>
 
     <!-- Story Viewer Page -->
     <div id="viewer" class="page">
-        <section class="viewer">
-            <div class="video-container">
-                <iframe id="videoPlayer" src="" allowfullscreen></iframe>
-            </div>
-            <div class="read-along">
-                <h2>📖 Read Along</h2>
-                <p id="storyText"></p>
-            </div>
-            <div class="viewer-nav">
-                <button class="btn btn-secondary" onclick="navigateTo('library')">← Back to Library</button>
-                <button class="btn" onclick="nextStory()">Next Story →</button>
-            </div>
-        </section>
+      <section class="viewer">
+        <div class="video-container">
+          <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+        </div>
+        <div class="read-along">
+          <h2>📖 Read Along</h2>
+          <p id="storyText"></p>
+        </div>
+        <div class="viewer-nav">
+          <button class="btn btn-secondary" onclick="navigateTo('library')">
+            ← Back to Library
+          </button>
+          <button class="btn" onclick="nextStory()">Next Story →</button>
+        </div>
+      </section>
     </div>
 
     <!-- About Page -->
     <div id="about" class="page">
-        <section class="about">
-            <div class="about-hero">
-                <h1>About Ponji Tales</h1>
-                <p style="font-size: 1.5rem; color: #5A3C0A;">Where Africa's Imagination Streams</p>
-            </div>
-            <div class="about-content">
-                <h2>Our Mission</h2>
-                <p>Ponji Tales celebrates Africa's imagination through AI-powered, literacy-focused storytelling for children. We believe every child deserves to see themselves in the stories they love.</p>
-                
-                <h2>Why Ponji Tales?</h2>
-                <p>African children deserve stories that reflect their rich heritage, diverse cultures, and boundless creativity. We combine traditional wisdom with modern technology to create engaging, educational content that inspires young minds.</p>
-                
-                <h2>Our Approach</h2>
-                <p>We use cutting-edge AI technology to bring African folktales, original stories, and cultural wisdom to life through animated videos and interactive reading experiences. Every story is designed to build literacy skills while celebrating African identity.</p>
-                
-                <h2>Join Our Journey</h2>
-                <p>We're just getting started! Ponji Tales is growing every day with new stories, features, and ways for families to connect with Africa's incredible storytelling tradition.</p>
-            </div>
-        </section>
+      <section class="about">
+        <div class="about-hero">
+          <h1>About Ponji Tales</h1>
+          <p style="font-size: 1.5rem; color: #5a3c0a">
+            Where Africa's Imagination Streams
+          </p>
+        </div>
+        <div class="about-content">
+          <h2>Our Mission</h2>
+          <p>
+            Ponji Tales celebrates Africa's imagination through AI-powered,
+            literacy-focused storytelling for children. We believe every child
+            deserves to see themselves in the stories they love.
+          </p>
+
+          <h2>Why Ponji Tales?</h2>
+          <p>
+            African children deserve stories that reflect their rich heritage,
+            diverse cultures, and boundless creativity. We combine traditional
+            wisdom with modern technology to create engaging, educational
+            content that inspires young minds.
+          </p>
+
+          <h2>Our Approach</h2>
+          <p>
+            We use cutting-edge AI technology to bring African folktales,
+            original stories, and cultural wisdom to life through animated
+            videos and interactive reading experiences. Every story is designed
+            to build literacy skills while celebrating African identity.
+          </p>
+
+          <h2>Join Our Journey</h2>
+          <p>
+            We're just getting started! Ponji Tales is growing every day with
+            new stories, features, and ways for families to connect with
+            Africa's incredible storytelling tradition.
+          </p>
+        </div>
+      </section>
     </div>
 
     <!-- Coming Soon Page -->
     <div id="coming-soon" class="page">
-        <section class="coming-soon">
-            <div class="coming-soon-content">
-                <div class="coming-soon-icon">🚀</div>
-                <h1>Coming Soon!</h1>
-                <p>We're working on exciting new features to make Ponji Tales even more magical.</p>
-                <div class="features-list">
-                    <ul>
-                        <li>Personalized story recommendations</li>
-                        <li>Parental controls and progress tracking</li>
-                        <li>Multi-language support (English, Swahili, Yoruba, and more)</li>
-                        <li>Interactive quizzes and activities</li>
-                        <li>Offline viewing mode</li>
-                        <li>Community story submissions</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+      <section class="coming-soon">
+        <div class="coming-soon-content">
+          <div class="coming-soon-icon">🚀</div>
+          <h1>Coming Soon!</h1>
+          <p>
+            We're working on exciting new features to make Ponji Tales even more
+            magical.
+          </p>
+          <div class="features-list">
+            <ul>
+              <li>Personalized story recommendations</li>
+              <li>Parental controls and progress tracking</li>
+              <li>
+                Multi-language support (English, Swahili, Yoruba, and more)
+              </li>
+              <li>Interactive quizzes and activities</li>
+              <li>Offline viewing mode</li>
+              <li>Community story submissions</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
     <script>
-        // Dummy story data
-        const stories = [
-             {
-              id: 6,
-              title: "Colorful Animal Safari",
-              region: "Central Africa",
-              description:
-    "Okello, Akello, and their friend Enjojo the elephant go on a safari to find the most colorful animals — and discover that true beauty shines from within.",
-              thumbnail: "assets/color_safari.png",
-              videoUrl: "assets/colorfull animal safari.mp4",
-              readAlong:
-    "One bright morning, twins Okello and Akello packed a basket of mangoes and set off on safari with their best friend, Enjojo the friendly elephant. They wanted to find the most colorful animals in the land. First, they met a pink flamingo dancing by the river. Then a shiny blue kingfisher swooped by, and later, a golden lion stretched in the sun. Enjojo trumpeted happily, 'We’ve seen every color!' But when the twins looked at their friend — with his gray skin covered in dusty splashes of orange clay — they smiled. Okello said, 'You’re the most colorful of all, Enjojo — because your heart is full of kindness!' And as the sun set, the savannah glowed with every shade of friendship."
-            },
-            {
-              id: 4,
-              title: "Chidi’s Safari",
-              region: "Central Africa",
-              description:
-                "Chidi dreams of going on a grand safari, but learns that true adventure starts with curiosity and kindness right at home.",
-              thumbnail: "assets/chidi.jpeg",
-              videoUrl: "assets/",
-              readAlong:
-                "Every night, Chidi would draw lions, elephants, and giraffes in his notebook, dreaming of exploring the wild. One morning, his grandmother sent him to fetch water — and along the way, he met a chameleon, a curious bird, and even an antelope grazing by the path. By the time he returned, he realized his own backyard was full of wonders. Chidi smiled, understanding that a safari isn’t just about seeing wild animals — it’s about seeing the world with open eyes."
-            },
-  {
-    id: 1,
-    title: "Kuku’s Adventure",
-    region: "East Africa",
-    description:
-      "Kuku, a curious little chicken, sets out to find where the sun sleeps — and learns the importance of bravery, curiosity, and home.",
-    thumbnail: "assets/kuku adventure.png",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    readAlong:
-      "Kuku was the smallest chick in her mother’s coop, but she had the biggest imagination. Every evening, as the sun dipped behind the hills, Kuku would wonder where it went to sleep. One morning, she decided to find out. She marched past tall grass, crossed a sparkling stream, and met a wise tortoise who told her, 'The sun never sleeps — it simply rests so others may shine.' When Kuku returned home, she realized that adventure isn’t just about how far you go, but how much you learn along the way."
-  },
-  {
-    id: 2,
-    title: "Kami’s Wild Fish",
-    region: "Indian Ocean Coast",
-    description:
-      "Kami discovers a wild talking fish that can change colors — and learns a powerful lesson about caring for the ocean and its creatures.",
-    thumbnail: "assets/kami.jpeg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    readAlong:
-      "On the shores of Lamu, Kami loved to swim among coral reefs. One day, she caught a strange fish glowing like the rainbow. The fish begged her to let it go, promising to show her the secrets of the sea. When she released it, Kami was taken on a magical underwater journey filled with dancing turtles and singing dolphins. The wild fish told her, 'The ocean is alive — protect it, and it will always protect you.' Kami returned home and became the youngest ocean guardian in her village."
-  },
-  {
-    id: 3,
-    title: "The Soup Monster",
-    region: "West Africa",
-    description:
-      "A greedy spirit who steals all the village soup learns a funny but heartfelt lesson about sharing and community.",
-    thumbnail: "assets/the soup monster.jpeg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    readAlong:
-      "In the village of Nyameko, everyone loved Mama Sisi’s famous peanut soup. But one night, a sneaky soup monster crept into the kitchen and ate it all! The villagers chased the monster through the forest until it got stuck in a giant calabash. Mama Sisi didn’t scold it — she offered it a small bowl instead. The monster was so touched that it began cooking with her every night. From that day on, the soup tasted even better, because it was made with love — and a little bit of monster mischief."
-  },
-  {
-    id: 5,
-    title: "The Opal Circle",
-    region: "Southern Africa",
-    description:
-      "Five children from different villages find glowing opal stones that connect them through stories, friendship, and light.",
-    thumbnail: "assets/the opal circle.jpeg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    readAlong:
-      "During a solar eclipse, five children — Ayo, Zuri, Themba, Amara, and Nia — found glowing opal stones scattered across the savannah. When they joined the stones together, they formed a circle that told stories of the stars and ancestors. Each child learned something different: courage, patience, laughter, kindness, and truth. When the light faded, the children promised to share their lessons with others, keeping the circle alive. From that day, they were known as the Keepers of the Opal Circle."
-  }
-];
+      // Dummy story data
+      const stories = [
+        {
+          id: 6,
+          title: "Colorful Animal Safari",
+          region: "Central Africa",
+          description:
+            "Tela and Raha go on an exciting Safari at Queen Elizabeth National Park and discover many awesome animals and the magnificent beauty and a glimpse of Uganda. Dive in and discover the wild with us!",
+          thumbnail: "assets/color_safari.png",
+          videoUrl: "assets/colorfull animal safari.mp4",
+          readAlong:
+            "Join Tela and Raha on a thrilling safari adventure through Queen Elizabeth National Park! From majestic elephants and towering giraffes to playful monkeys and colorful birds, they discover the amazing wildlife and breathtaking landscapes that make Uganda truly special. Get ready to explore, learn, and be amazed as our little adventurers uncover the wonders of the wild. Dive into the safari and experience the magic of Uganda with Tela and Raha!",
+        },
+        {
+          id: 4,
+          title: "Jalapiny",
+          region: "Central Africa",
+          description:
+            "Geno can’t fall asleep he’s terrified that the Jalapiny, a mischievous dream creature, will gobble him up! But as he journeys deeper into his dreams, he discovers something amazing: the Jalapiny isn’t scary at all. It’s his imagination, and tonight, his dreams can become anything he wants. From flying over mountains to exploring magical lands, Geno learns that bedtime is full of endless possibilities.",
+          thumbnail: "assets/Jalapiny_landscape.png",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Shh… Geno is tucked under his blankets, but sleep won’t come. His heart races—what if the Jalapiny is waiting in the shadows, ready to gobble him up? He hugs his pillow tight, peeks under it, and imagines the scariest, spiniest, jumpiest creature ever. But wait… as his eyes flutter closed, something amazing happens. The Jalapiny isn’t scary at all it’s his dream, and tonight, it can take him anywhere he wants. Will he soar over sparkling mountains, dive into magical rivers, or meet creatures no one else has ever seen? Turn the page and join Geno as he discovers the incredible adventures that only dreams can bring!",
+        },
+        {
+          id: 1,
+          title: "Kuku’s Adventure",
+          region: "East Africa",
+          description:
+            "Kuku, a curious little chicken, sets out to find where the sun sleeps — and learns the importance of bravery, curiosity, and home.",
+          thumbnail: "assets/kuku adventure.png",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Kuku was the smallest chick in her mother’s coop, but she had the biggest imagination. Every evening, as the sun dipped behind the hills, Kuku would wonder where it went to sleep. One morning, she decided to find out. She marched past tall grass, crossed a sparkling stream, and met a wise tortoise who told her, 'The sun never sleeps — it simply rests so others may shine.' When Kuku returned home, she realized that adventure isn’t just about how far you go, but how much you learn along the way.",
+        },
+        {
+          id: 2,
+          title: "Kami’s Wild Fish",
+          region: "Indian Ocean Coast",
+          description:
+            "Is Kami's mischief driving everyone away? Or are they just jealous of her pretty shoes? Discover more inside our whacky story. Dive in and share in this wild adventure.",
+          thumbnail: "assets/kami_clear_image.png",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Kami is a school bully who thinks she can get away with being mean. But when her shoe magically transforms into a monstrous fish, it torments her as one living creature, showing her what it feels like to be on the receiving end. Through this wild and scary adventure, Kami learns that kindness wins the day.",
+        },
+        {
+          id: 3,
+          title: "The Soup Gobbler",
+          region: "West Africa",
+          description:
+            "Does Miya really love soup that much? Or is Mama's busy life creating a big problem? Find out more inside our whimsical story. Enjoy and share this very soupy adventure with all.",
+          thumbnail: "assets/soup_gobbler.jpeg",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Miya loves soup… maybe more than anything!  But today, Mama is busy, and Miya feels left out. One minute late for lunch, she suddenly turns into a wiggly, growly monster! The Soup Gobbler isn’t scary, though—it just shows Miya what happens when feelings get big and bottled up. Through giggles, splashes, and lots of slurping, Miya and Mama discover the truth: Miya wasn’t a monster. She just needed love, attention, and a warm bowl of soup shared together. A heartwarming, soupy adventure that teaches patience, understanding, and how even the tiniest monster can be soothed with love.",
+        },
+        {
+          id: 7,
+          title: "A Numbers Ocean Safari",
+          region: "Southern Africa",
+          description:
+            "A numbers Ocean Safari Tela and Raha explore the beautiful island Zanzibar inside the Indian Ocean. Safari with them as they count a number of cool ocean animals",
+          thumbnail: "assets/a_numbers_ocean_safari.jpeg",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Join Tela and Raha on an unforgettable adventure to the sparkling waters of Zanzibar! As they explore this magical island in the heart of the Indian Ocean, they dive into a world full of amazing ocean creatures. From playful dolphins to colorful fish, the duo counts, discovers, and learns about each animal they meet along the way. This exciting safari is packed with fun, learning, and the wonder of the ocean, making it the perfect story for little explorers who love numbers, animals, and the beauty of the sea.",
+        },
+        {
+          id: 5,
+          title: "Kiki’s Nursery Pan-African Rhymes",
+          region: "Southern Africa",
+          description:
+            "Join Kiki as she shares delightful Pan-African nursery rhymes, blending culture, rhythm, and fun. Perfect for little ones, these gentle, low-stimulation songs encourage learning, imagination, and early language development while introducing children to vibrant African traditions.",
+          thumbnail: "assets/kiki_nursery_rhymes.jpeg",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Sing, laugh, and learn with Kiki in Kiki’s Nursery Pan-African Rhymes! This read-along adventure brings traditional African nursery rhymes to life, thoughtfully designed for little ears with gentle, low-stimulation melodies. Children will discover rhythm, rhymes, and playful words while exploring Pan-African culture through Kiki’s engaging storytelling. Each rhyme sparks curiosity, encourages early language skills, and inspires imagination in a soothing, fun way. Perfect for storytime at home or in classrooms, this book invites children and caregivers alike to share joyful moments, celebrate culture, and nurture a love for music, words, and learning.",
+        },
+        {
+          id: 5,
+          title: "The Opal Circle",
+          region: "Southern Africa",
+          description:
+            "Five children from different villages find glowing opal stones that connect them through stories, friendship, and light.",
+          thumbnail: "assets/the opal circle.jpeg",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "During a solar eclipse, five children — Ayo, Zuri, Themba, Amara, and Nia — found glowing opal stones scattered across the savannah. When they joined the stones together, they formed a circle that told stories of the stars and ancestors. Each child learned something different: courage, patience, laughter, kindness, and truth. When the light faded, the children promised to share their lessons with others, keeping the circle alive. From that day, they were known as the Keepers of the Opal Circle.",
+        },
+      ];
 
+      let currentStoryIndex = 0;
 
-        let currentStoryIndex = 0;
+      // Initialize stories grid
+      function initStories(storiesToRender = stories) {
+        const grid = document.getElementById("storiesGrid");
+        grid.innerHTML = "";
 
-        // Initialize stories grid
-        function initStories(storiesToRender = stories) {
-            const grid = document.getElementById('storiesGrid');
-            grid.innerHTML = '';
-            
-            storiesToRender.forEach((story) => {
-                const card = document.createElement('div');
-                card.className = 'story-card';
-                card.onclick = () => openStory(story.id);
-                card.innerHTML = `
+        storiesToRender.forEach((story) => {
+          const card = document.createElement("div");
+          card.className = "story-card";
+          card.onclick = () => openStory(story.id);
+          card.innerHTML = `
                     <img src="${story.thumbnail}" alt="${story.title}" class="story-thumbnail">
                     <div class="story-info">
                         <span class="story-region">${story.region}</span>
@@ -855,90 +930,117 @@
                         <p class="story-description">${story.description}</p>
                     </div>
                 `;
-                grid.appendChild(card);
-            });
-        }
-
-        // Navigation
-        function navigateTo(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        // Open story viewer
-        function openStory(storyId) {
-            const story = stories.find(s => s.id === storyId);
-            if (!story) return;
-
-            currentStoryIndex = stories.indexOf(story);
-            document.getElementById('videoPlayer').src = story.videoUrl;
-            document.getElementById('storyText').textContent = story.readAlong;
-            navigateTo('viewer');
-        }
-
-        // Next story
-        function nextStory() {
-            currentStoryIndex = (currentStoryIndex + 1) % stories.length;
-            const nextStoryId = stories[currentStoryIndex].id;
-            openStory(nextStoryId);
-        }
-
-        // Nav link handling
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                navigateTo(link.dataset.page);
-            });
+          grid.appendChild(card);
         });
+      }
 
-        // Search bar handling
-        const searchBar = document.getElementById('searchBar');
-        searchBar.addEventListener('keyup', (e) => {
-            const searchString = e.target.value.toLowerCase();
-            const filteredStories = stories.filter(story => {
-                return story.title.toLowerCase().includes(searchString) || 
-                       story.description.toLowerCase().includes(searchString);
-            });
+      // Navigation
+      function navigateTo(pageId) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document.getElementById(pageId).classList.add("active");
+        window.scrollTo(0, 0);
+      }
+
+      // Open story viewer
+      function openStory(storyId) {
+        const story = stories.find((s) => s.id === storyId);
+        if (!story) return;
+
+        currentStoryIndex = stories.indexOf(story);
+
+        // Check if the video is 'coming-soon'
+        if (story.videoUrl === "coming-soon") {
+          // If 'coming-soon', display a placeholder message and image in the viewer
+          const viewerContent = `
+                    <div class="coming-soon" style="min-height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #F6B700 0%, #FF9A00 100%); border-radius: 20px;">
+                        <div style="text-align: center; color: #4A2C00; padding: 2rem;">
+                            <div style="font-size: 5rem; margin-bottom: 1rem;">🎥</div>
+                            <h1 style="font-size: 3rem; margin-bottom: 0.5rem;">Video Coming Soon!</h1>
+                            <p style="font-size: 1.5rem;">The video for **${story.title}** is not available at the moment. <br>Please enjoy the read-along text below!</p>
+                        </div>
+                    </div>
+                `;
+          // Replace the video player with the coming soon content
+          document.querySelector(".video-container").innerHTML = viewerContent;
+        } else {
+          // If a valid video URL, use the iframe player
+          document.querySelector(
+            ".video-container"
+          ).innerHTML = `<iframe id="videoPlayer" src="${story.videoUrl}" allowfullscreen></iframe>`;
+        }
+
+        document.getElementById("storyText").textContent = story.readAlong;
+        navigateTo("viewer");
+      }
+
+      // Next story
+      function nextStory() {
+        currentStoryIndex = (currentStoryIndex + 1) % stories.length;
+        const nextStoryId = stories[currentStoryIndex].id;
+        openStory(nextStoryId);
+      }
+
+      // Nav link handling
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          navigateTo(link.dataset.page);
+        });
+      });
+
+      // Search bar handling
+      const searchBar = document.getElementById("searchBar");
+      searchBar.addEventListener("keyup", (e) => {
+        const searchString = e.target.value.toLowerCase();
+        const filteredStories = stories.filter((story) => {
+          return (
+            story.title.toLowerCase().includes(searchString) ||
+            story.description.toLowerCase().includes(searchString)
+          );
+        });
+        initStories(filteredStories);
+      });
+
+      // Filter buttons handling
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          e.target.classList.add("active");
+
+          const filter = e.target.dataset.filter;
+          if (filter === "all") {
+            initStories(stories);
+          } else {
+            const filteredStories = stories.filter(
+              (story) => story.region === filter
+            );
             initStories(filteredStories);
+          }
         });
+      });
 
-        // Filter buttons handling
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        filterButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                e.target.classList.add('active');
-                
-                const filter = e.target.dataset.filter;
-                if (filter === 'all') {
-                    initStories(stories);
-                } else {
-                    const filteredStories = stories.filter(story => story.region === filter);
-                    initStories(filteredStories);
-                }
-            });
-        });
-
-        // Initialize featured story
-        function initFeaturedStory() {
-            const featuredStoryContainer = document.getElementById('featuredStory');
-            const featuredStory = stories[0];
-            featuredStoryContainer.innerHTML = `
-                <img src="${featuredStory.thumbnail}" alt="${featuredStory.title}">
+      // Initialize featured story
+      function initFeaturedStory() {
+        const featuredStoryContainer = document.getElementById("featuredStory");
+        const featuredStory = stories[0];
+        featuredStoryContainer.innerHTML = `
+               <div> <img src="${featuredStory.thumbnail}" alt="${featuredStory.title}"></div>
                 <div>
                     <h2>${featuredStory.title}</h2>
                     <p>${featuredStory.description}</p>
                     <button class="btn" onclick="openStory(${featuredStory.id})">Watch Story</button>
                 </div>
             `;
-        }
+      }
 
-        // Initialize on load
-        initFeaturedStory();
-        initStories(stories);
+      // Initialize on load
+      initFeaturedStory();
+      initStories(stories);
     </script>
-</body>
+  </body>
 </html>

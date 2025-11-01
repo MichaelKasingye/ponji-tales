@@ -273,11 +273,16 @@
 
       .story-thumbnail {
         width: 100%;
-        height: 200px;
+        height: 300px;
         object-fit: cover;
         background: linear-gradient(135deg, #f6b700 0%, #ff9a00 100%);
       }
-
+  /* .story-thumbnail {
+        width: 100%;
+        object-fit: cover;
+        background: linear-gradient(135deg, #f6b700 0%, #ff9a00 100%);
+        padding: 0.5rem;
+      } */
       .story-info {
         padding: 1.5rem;
       }
@@ -683,8 +688,8 @@
     <div id="home" class="page active">
       <section class="hero">
         <div class="hero-content">
-          <h1>👉 Welcome to Ponji Tales</h1>
-          <p>Where African stories come alive — one tale at a time.</p>
+          <h1><img src="assets/Raha.png" alt="Welcome" style="width: 100px; height: 190px; object-fit: cover;  vertical-align: middle; margin-right: 15px;"> Welcome to Ponji Tales</h1>          <p>Where African stories come alive — one tale at a time.</p>
+          
           <button class="btn" onclick="navigateTo('library')">
             Explore Stories
           </button>
@@ -837,11 +842,11 @@
           title: "Jalapiny",
           region: "Central Africa",
           description:
-            "When a great storm frightens her village, little Jalapiny remembers the song taught to her by Muntu the frog — and learns that courage can bring calm to any storm.",
+            "Geno can’t fall asleep he’s terrified that the Jalapiny, a mischievous dream creature, will gobble him up! But as he journeys deeper into his dreams, he discovers something amazing: the Jalapiny isn’t scary at all. It’s his imagination, and tonight, his dreams can become anything he wants. From flying over mountains to exploring magical lands, Geno learns that bedtime is full of endless possibilities.",
           thumbnail: "assets/Jalapiny_landscape.png",
           videoUrl: "coming-soon", // Updated to 'coming-soon'
           readAlong:
-            "In the peaceful village of Lukaya, little Jalapiny loved to dream. Each night, her dreams carried her across rivers and forests where she met friendly creatures like Muntu the frog, who taught her the songs of the rain. One night, a great storm scared the village, but Jalapiny remembered Muntu’s song and sang softly. The wind calmed, and peace returned. The elders said her heart was brave and pure.",
+            "Shh… Geno is tucked under his blankets, but sleep won’t come. His heart races—what if the Jalapiny is waiting in the shadows, ready to gobble him up? He hugs his pillow tight, peeks under it, and imagines the scariest, spiniest, jumpiest creature ever. But wait… as his eyes flutter closed, something amazing happens. The Jalapiny isn’t scary at all it’s his dream, and tonight, it can take him anywhere he wants. Will he soar over sparkling mountains, dive into magical rivers, or meet creatures no one else has ever seen? Turn the page and join Geno as he discovers the incredible adventures that only dreams can bring!",
         },
         {
           id: 1,
@@ -888,15 +893,37 @@
             "Join Tela and Raha on an unforgettable adventure to the sparkling waters of Zanzibar! As they explore this magical island in the heart of the Indian Ocean, they dive into a world full of amazing ocean creatures. From playful dolphins to colorful fish, the duo counts, discovers, and learns about each animal they meet along the way. This exciting safari is packed with fun, learning, and the wonder of the ocean, making it the perfect story for little explorers who love numbers, animals, and the beauty of the sea.",
         },
         {
+          id: 9,
+          title: "Kiki’s Nursery Pan-African Rhymes",
+          region: "Southern Africa",
+          description:
+            "Join Kiki as she shares delightful Pan-African nursery rhymes, blending culture, rhythm, and fun. Perfect for little ones, these gentle, low-stimulation songs encourage learning, imagination, and early language development while introducing children to vibrant African traditions.",
+          thumbnail: "assets/kiki_nursery_rhymes.jpeg",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Sing, laugh, and learn with Kiki in Kiki’s Nursery Pan-African Rhymes! This read-along adventure brings traditional African nursery rhymes to life, thoughtfully designed for little ears with gentle, low-stimulation melodies. Children will discover rhythm, rhymes, and playful words while exploring Pan-African culture through Kiki’s engaging storytelling. Each rhyme sparks curiosity, encourages early language skills, and inspires imagination in a soothing, fun way. Perfect for storytime at home or in classrooms, this book invites children and caregivers alike to share joyful moments, celebrate culture, and nurture a love for music, words, and learning.",
+        },
+        {
+          id: 10,
+          title: "Imani and Icons",
+          region: "Southern Africa",
+          description:
+            "Imani, the African Barbie, inspires kids to dream big! She shows that with creativity, courage, and innovation, they can build fun, lasting businesses. Living an aspirational life, she celebrates African brilliance, the green economy, and endless possibilities.",
+          thumbnail: "assets/imani.jpeg",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Meet Imani, the African Barbie who drives her sleek jeep and lives a life full of adventure, dreams, and bright ideas! She loves showing kids that they can be anything they imagine—entrepreneurs, inventors, or leaders—while making the world a better place. Imani believes in African brilliance, green innovation, and creating businesses that are fun and lasting. Follow her as she shares exciting projects, clever inventions, and valuable lessons about courage, creativity, and helping others. With Imani as your guide, every child can see that amazing dreams and big ideas are possible anywhere in Africa!",
+        },
+        {
           id: 5,
           title: "The Opal Circle",
           region: "Southern Africa",
           description:
-            "Five children from different villages find glowing opal stones that connect them through stories, friendship, and light.",
+            "Orphaned hero Kayom vows to save her country, Mashiriki, from corruption. Discovering the Opal Circle elites profit from regional wars, she joins their army to expose them—testing her courage, wits, and determination in a high-stakes fight for justice.",
           thumbnail: "assets/the opal circle.jpeg",
           videoUrl: "coming-soon", // Updated to 'coming-soon'
           readAlong:
-            "During a solar eclipse, five children — Ayo, Zuri, Themba, Amara, and Nia — found glowing opal stones scattered across the savannah. When they joined the stones together, they formed a circle that told stories of the stars and ancestors. Each child learned something different: courage, patience, laughter, kindness, and truth. When the light faded, the children promised to share their lessons with others, keeping the circle alive. From that day, they were known as the Keepers of the Opal Circle.",
+            "Follow Kayom, a brave and resourceful teen, on her daring quest to restore her country, Mashiriki, to its former glory. Orphaned and from the poorest region, she uncovers the sinister Opal Circle elites who fuel wars to plunder resources and maintain power. To stop them, Kayom infiltrates their elite army, facing dangerous missions, tough choices, and thrilling adventures along the way. This action-packed story takes readers deep into a world of courage, strategy, and hope, showing how one determined young hero can challenge injustice, unite communities, and change the fate of a nation.",
         },
       ];
 
