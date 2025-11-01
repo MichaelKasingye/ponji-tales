@@ -122,13 +122,30 @@
         margin: 0 auto;
       }
 
-      .hero h1 {
+      /* .hero h1 {
         font-size: 4rem;
         color: #4a2c00;
         margin-bottom: 1.5rem;
         line-height: 1.2;
+      } */
+.hero h1 {
+        font-size: 4rem;
+        color: #4a2c00;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
 
+      .hero h1 img {
+        width: 100px;
+        height: 190px;
+        object-fit: cover;
+        vertical-align: middle;
+      }
       .hero p {
         font-size: 2.5rem;
         color: #5a3c0a;
@@ -273,11 +290,16 @@
 
       .story-thumbnail {
         width: 100%;
-        height: 200px;
+        height: 300px;
         object-fit: cover;
         background: linear-gradient(135deg, #f6b700 0%, #ff9a00 100%);
       }
-
+  /* .story-thumbnail {
+        width: 100%;
+        object-fit: cover;
+        background: linear-gradient(135deg, #f6b700 0%, #ff9a00 100%);
+        padding: 0.5rem;
+      } */
       .story-info {
         padding: 1.5rem;
       }
@@ -888,7 +910,7 @@
             "Join Tela and Raha on an unforgettable adventure to the sparkling waters of Zanzibar! As they explore this magical island in the heart of the Indian Ocean, they dive into a world full of amazing ocean creatures. From playful dolphins to colorful fish, the duo counts, discovers, and learns about each animal they meet along the way. This exciting safari is packed with fun, learning, and the wonder of the ocean, making it the perfect story for little explorers who love numbers, animals, and the beauty of the sea.",
         },
         {
-          id: 5,
+          id: 9,
           title: "Kiki’s Nursery Pan-African Rhymes",
           region: "Southern Africa",
           description:
@@ -899,15 +921,26 @@
             "Sing, laugh, and learn with Kiki in Kiki’s Nursery Pan-African Rhymes! This read-along adventure brings traditional African nursery rhymes to life, thoughtfully designed for little ears with gentle, low-stimulation melodies. Children will discover rhythm, rhymes, and playful words while exploring Pan-African culture through Kiki’s engaging storytelling. Each rhyme sparks curiosity, encourages early language skills, and inspires imagination in a soothing, fun way. Perfect for storytime at home or in classrooms, this book invites children and caregivers alike to share joyful moments, celebrate culture, and nurture a love for music, words, and learning.",
         },
         {
+          id: 10,
+          title: "Imani and Icons",
+          region: "Southern Africa",
+          description:
+            "Imani, the African Barbie, inspires kids to dream big! She shows that with creativity, courage, and innovation, they can build fun, lasting businesses. Living an aspirational life, she celebrates African brilliance, the green economy, and endless possibilities.",
+          thumbnail: "assets/imani.jpeg",
+          videoUrl: "coming-soon", // Updated to 'coming-soon'
+          readAlong:
+            "Meet Imani, the African Barbie who drives her sleek jeep and lives a life full of adventure, dreams, and bright ideas! She loves showing kids that they can be anything they imagine—entrepreneurs, inventors, or leaders—while making the world a better place. Imani believes in African brilliance, green innovation, and creating businesses that are fun and lasting. Follow her as she shares exciting projects, clever inventions, and valuable lessons about courage, creativity, and helping others. With Imani as your guide, every child can see that amazing dreams and big ideas are possible anywhere in Africa!",
+        },
+        {
           id: 5,
           title: "The Opal Circle",
           region: "Southern Africa",
           description:
-            "Five children from different villages find glowing opal stones that connect them through stories, friendship, and light.",
+            "Orphaned hero Kayom vows to save her country, Mashiriki, from corruption. Discovering the Opal Circle elites profit from regional wars, she joins their army to expose them—testing her courage, wits, and determination in a high-stakes fight for justice.",
           thumbnail: "assets/the opal circle.jpeg",
           videoUrl: "coming-soon", // Updated to 'coming-soon'
           readAlong:
-            "During a solar eclipse, five children — Ayo, Zuri, Themba, Amara, and Nia — found glowing opal stones scattered across the savannah. When they joined the stones together, they formed a circle that told stories of the stars and ancestors. Each child learned something different: courage, patience, laughter, kindness, and truth. When the light faded, the children promised to share their lessons with others, keeping the circle alive. From that day, they were known as the Keepers of the Opal Circle.",
+            "Follow Kayom, a brave and resourceful teen, on her daring quest to restore her country, Mashiriki, to its former glory. Orphaned and from the poorest region, she uncovers the sinister Opal Circle elites who fuel wars to plunder resources and maintain power. To stop them, Kayom infiltrates their elite army, facing dangerous missions, tough choices, and thrilling adventures along the way. This action-packed story takes readers deep into a world of courage, strategy, and hope, showing how one determined young hero can challenge injustice, unite communities, and change the fate of a nation.",
         },
       ];
 
@@ -1029,7 +1062,7 @@
         const featuredStoryContainer = document.getElementById("featuredStory");
         const featuredStory = stories[0];
         featuredStoryContainer.innerHTML = `
-               <div> <img src="${featuredStory.thumbnail}" alt="${featuredStory.title}"></div>
+                <img src="${featuredStory.thumbnail}" alt="${featuredStory.title}">
                 <div>
                     <h2>${featuredStory.title}</h2>
                     <p>${featuredStory.description}</p>

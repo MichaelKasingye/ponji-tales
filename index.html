@@ -122,13 +122,30 @@
         margin: 0 auto;
       }
 
-      .hero h1 {
+      /* .hero h1 {
         font-size: 4rem;
         color: #4a2c00;
         margin-bottom: 1.5rem;
         line-height: 1.2;
+      } */
+.hero h1 {
+        font-size: 4rem;
+        color: #4a2c00;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
 
+      .hero h1 img {
+        width: 100px;
+        height: 190px;
+        object-fit: cover;
+        vertical-align: middle;
+      }
       .hero p {
         font-size: 2.5rem;
         color: #5a3c0a;
@@ -663,6 +680,35 @@
           font-size: 1.1rem;
         }
       }
+      
+      @media (max-width: 375px) {
+        nav {
+          padding: 1rem 1rem;
+        }
+
+        .nav-container {
+          gap: 0.5rem;
+        }
+
+        .logo {
+          font-size: 1.3rem;
+        }
+
+        .logo-icon {
+          width: 35px;
+          height: 35px;
+        }
+
+        .nav-links {
+          gap: 0.4rem;
+        }
+
+        .nav-links a {
+          font-size: 0.9rem;
+          padding: 0.4rem 0.6rem;
+        }
+    }
+    
     </style>
   </head>
   <body>
